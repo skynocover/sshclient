@@ -35,9 +35,7 @@ func main() {
 			break
 		}
 		order.Do(input)
-
 	}
-
 }
 
 func CallClear() { //清空用
