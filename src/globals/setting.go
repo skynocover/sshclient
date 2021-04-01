@@ -14,7 +14,6 @@ type Config struct {
 }
 
 type Host struct {
-	Name     string `json:"name"`
 	Domain   string `json:"domain"`
 	User     string `json:"user"`
 	Password string `json:"password"`
@@ -24,10 +23,16 @@ func LoadConfiguration(filePath string) error {
 
 	newconfig := func() error {
 		Setting = Config{Hosts: []Host{
-			{Domain: "",
+			{
+				Domain:   "",
 				User:     "",
-				Password: ""},
+				Password: "",
+			},
 		}}
+		jsonByte, _ := json.Marshal(Setting)
+		if err := ioutil.WriteFile(filePath, jsonByte, 0755); err != nil {
+			return err
+		}
 
 		return errors.New("initial the new config")
 	}
