@@ -21,37 +21,46 @@ func main() {
 		log.Fatal(err)
 	}
 
-	var input string
 	for {
 		CallClear() //清空
 
-		// for i, host := range globals.Setting.Hosts {
-		// 	fmt.Printf("Order: %d, %+v\n", i, host)
-		// }
 		globals.Setting.Show()
-		fmt.Println("What is your command? input Order to connect or exit to leave")
-		fmt.Scan(&input)
-		if input == "exit" {
-			break
+		fmt.Println(`What is your command? input Order to connect || "m" to modify || "h" to help || "exit" to leave`)
+		var input string
+		fmt.Scanln(&input)
+		switch input {
+		case "exit":
+			return
+		case "h":
+			fmt.Println("modify   : modify the configuration")
+			fmt.Println("{any int}: ssh in to machine")
+			fmt.Println("Press any key to continue")
+			fmt.Scanln(&input)
+			continue
+
+		default:
+			if err := order.Do(input); err != nil {
+				fmt.Println(err)
+				fmt.Println("Press any key to continue")
+				fmt.Scanln(&input)
+			}
 		}
-		order.Do(input)
 	}
 }
 
 func CallClear() { //清空用
 	clear := make(map[string]func()) //Initialize it
 	clear["linux"] = func() {
-		cmd := exec.Command("clear") //Linux example, its tested
-		cmd.Stdout = os.Stdout
+		cmd := exec.Command("clear")
 		cmd.Run()
 	}
 	clear["darwin"] = func() {
-		cmd := exec.Command("clear") //Linux example, its tested
+		cmd := exec.Command("clear")
 		cmd.Stdout = os.Stdout
 		cmd.Run()
 	}
 	clear["windows"] = func() {
-		cmd := exec.Command("cmd", "/c", "cls") //Windows example, its tested
+		cmd := exec.Command("cmd", "/c", "cls")
 		cmd.Stdout = os.Stdout
 		cmd.Run()
 	}

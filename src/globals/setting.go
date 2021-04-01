@@ -72,11 +72,11 @@ const lable = "Current Store Host"
 // Show ...
 func (c *Config) Show() {
 
-	orderlen := strings.Count("Order", "")
-	namelen := strings.Count("Name", "")
-	domainlen := strings.Count("Domain", "")
-	userlen := strings.Count("User", "")
-	passwordlen := strings.Count("Password", "")
+	orderlen := strings.Count("order", "")
+	namelen := strings.Count("name", "")
+	domainlen := strings.Count("domain", "")
+	userlen := strings.Count("user", "")
+	passwordlen := strings.Count("password", "")
 	for _, host := range Setting.Hosts {
 		temp := strings.Count(host.Name, "")
 		if temp > namelen {
@@ -107,21 +107,21 @@ func (c *Config) Show() {
 	}
 	fmt.Println("")
 
-	fmt.Printf("Order  ")
-	fmt.Printf("Name")
-	for i := 0; i < namelen-strings.Count("Name", "")+2; i++ {
+	fmt.Printf("order  ")
+	fmt.Printf("name")
+	for i := 0; i < namelen-strings.Count("name", "")+2; i++ {
 		fmt.Printf(" ")
 	}
-	fmt.Printf("Domain")
-	for i := 0; i < domainlen-strings.Count("Domain", "")+2; i++ {
+	fmt.Printf("domain")
+	for i := 0; i < domainlen-strings.Count("domain", "")+2; i++ {
 		fmt.Printf(" ")
 	}
-	fmt.Printf("User")
-	for i := 0; i < userlen-strings.Count("User", "")+2; i++ {
+	fmt.Printf("user")
+	for i := 0; i < userlen-strings.Count("user", "")+2; i++ {
 		fmt.Printf(" ")
 	}
 
-	fmt.Println("Password")
+	fmt.Println("password")
 
 	for i, host := range Setting.Hosts {
 		ii := fmt.Sprintf("%d", i)
