@@ -37,8 +37,10 @@ initial the new config // if you see this, you were initial the config success
 
 ```
 go run main.go
-==============Current Store Host============
-Order: 0, {Name:thisIsOnlyForComment Domain:vmhost:22 User:root Password:123456}
+=========================Current Store Host=========================
+Order  Name                   Domain            User    Password
+0      thisiIsOnlyForComment  192.168.99.12:22  ubuntu  passwordpass
+1      comment                192.168.99.11:22  ubuntu  2wsx$passwordpass
 What is your command? input Order to connect or exit to leave
 ```
 

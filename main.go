@@ -24,11 +24,11 @@ func main() {
 	var input string
 	for {
 		CallClear() //清空
-		fmt.Println("==============Current Store Host============")
 
-		for i, host := range globals.Setting.Hosts {
-			fmt.Printf("Order: %d, %+v\n", i, host)
-		}
+		// for i, host := range globals.Setting.Hosts {
+		// 	fmt.Printf("Order: %d, %+v\n", i, host)
+		// }
+		globals.Setting.Show()
 		fmt.Println("What is your command? input Order to connect or exit to leave")
 		fmt.Scan(&input)
 		if input == "exit" {
