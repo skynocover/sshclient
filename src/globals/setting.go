@@ -107,8 +107,6 @@ func (c *Config) Show() {
 	}
 	fmt.Println("")
 
-	// fmt.Println("==============Current Store Host============")
-
 	fmt.Printf("Order  ")
 	fmt.Printf("Name")
 	for i := 0; i < namelen-strings.Count("Name", "")+2; i++ {

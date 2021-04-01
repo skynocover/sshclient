@@ -40,7 +40,7 @@ go run main.go
 =========================Current Store Host=========================
 Order  Name                   Domain            User    Password
 0      thisiIsOnlyForComment  192.168.99.12:22  ubuntu  passwordpass
-1      comment                192.168.99.11:22  ubuntu  2wsx$passwordpass
+1      comment                192.168.99.11:22  ubuntu  passwordpass
 What is your command? input Order to connect or exit to leave
 ```
 
